@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>{+title /}</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/sidebar.css">
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>    
+    <script src="/js/app.js"></script>
+    <script src="/js/sidebar.js"></script>
+    <script src="/js/autocomplete.js"></script>
+    <script src="/js/URI.js"></script>
+
+<script>
+/*
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+*/
+  // ga('create', 'UA-80140107-1', 'auto');
+  // ga('send', 'pageview');
+
+</script>
+
+</head>
+<body>
+<div id="wrapper">
+    <header>
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+             
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="row navbar-header">
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/"><span class="brand-white">Sports </span><span class="brand-yellow">Dress</span><span class="brand-white">Cool Co.</span></a>
+            </div>
+
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="row collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="margin-top:50px"> 
+                <ul class="nav navbar-nav navbar-left">
+                    {?facets.department_en_string_mv} 
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Department<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        {#facets.department_en_string_mv}
+                        {#.}
+                            {@eq key=pagination value="/all-products" }
+                                {@first}<li><a href='/department/{.}'>{.}</a></li>{/first}
+                            {:else}
+                                {@first}<li><a href='{pagination}/department/{.}'>{.}</a></li>{/first}
+                            {/eq}
+                        {/.}
+                        {/facets.department_en_string_mv}
+                            
+                        </ul>
+                    </li>
+                    {/facets.department_en_string_mv}
+
+                    {?facets.league_en_string} 
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">League<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        {#facets.league_en_string}
+                        {#.}
+                             {@eq key=pagination value="/all-products" }
+                                {@first}<li><a href='/league/{.}'>{.}</a></li>{/first}
+                            {:else}
+                                {@first}<li><a href='{pagination}/league/{.}'>{.}</a></li>{/first}
+                            {/eq}
+                        {/.}
+                        {/facets.league_en_string}
+                            
+                        </ul>
+                    </li>
+                    {/facets.league_en_string}
+
+
+                    {?facets.conference_en_string} 
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Conference<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        {#facets.conference_en_string}
+                        {#.}
+                            {@eq key=pagination value="/all-products" }
+                                {@first}<li><a href='/conference/{.}'>{.}</a></li>{/first}
+                            {:else}
+                                {@first}<li><a href='{pagination}/conference/{.}'>{.}</a></li>{/first}
+                            {/eq}
+                        {/.}
+                        {/facets.conference_en_string}
+                            
+                        </ul>
+                    </li>
+                    {/facets.conference_en_string}
+
+
+                    {?facets.team_string} 
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Team<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        {#facets.team_string}
+                        {#.}
+                            {@eq key=pagination value="/all-products" }
+                                {@first}<li><a href='/team/{.}'>{.}</a></li>{/first}
+                            {:else}
+                                {@first}<li><a href='{pagination}/team/{.}'>{.}</a></li>{/first}
+                            {/eq}
+                        {/.}
+                        {/facets.team_string}
+                            
+                        </ul>
+                    </li>
+                    {/facets.team_string}
+
+
+                    {?facets.apparel_string_mv} 
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Apparel<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        {#facets.apparel_string_mv}
+                        {#.}
+                            {@eq key=pagination value="/all-products" }
+                                {@first}<li><a href='/apparel/{.}'>{.}</a></li>{/first}
+                            {:else}
+                                {@first}<li><a href='{pagination}/apparel/{.}'>{.}</a></li>{/first}
+                            {/eq}
+                        {/.}
+                        {/facets.apparel_string_mv}
+                            
+                        </ul>
+                    </li>
+                    {/facets.apparel_string_mv}
+
+
+                </ul>
+            </div><!-- /.navbar-collapse -->
+
+        </div>
+        </nav>
+    </header>
+    <div class="clearfix"></div>
+   <!-- <container> -->
+        <div class="container" style="margin-top:50px">
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper">
+                {+leftnav /}
+            </div><!-- /#sidebar-wrapper -->
+
+            <div class="row text-center">
+                <br/><br/><br/>
+                {+body /}
+            </div>
+        </div>
+
+    <div class="clearfix"></div>
+
+    <div class="container">
+        <footer id="footer" role="contentinfo">
+            <ul>
+                <li>Sports Wear in affiliation with Lids.com</li>
+            </ul>
+        </footer>
+    </div>
+<!--     </container>
+ -->
+</div> <!-- //wrapper -->
+</body>
+</html>

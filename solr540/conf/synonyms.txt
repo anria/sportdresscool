@@ -1,0 +1,10 @@
+hats,hat,cap,caps
+women,woman,woman's
+man,men
+tank,tanks,tanktop
+tee=>t-shirt,tee
+t-shirt,tshirt,t-short
+ncaa,cnaa
+jersey,jerseys
+stephen,stephan,steph
+50pk,50-pack

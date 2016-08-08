@@ -1,0 +1,14 @@
+{
+  "generator-kraken": {
+    "taskModule": "grunt",
+    "lintModule": "eslint",
+    "description": "Sports Wear",
+    "author": "AB1",
+    "templateModule": "dustjs",
+    "i18n": false,
+    "componentPackager": false,
+    "cssModule": false,
+    "jsModule": false,
+    "useJson": null
+  }
+}
