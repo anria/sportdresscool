@@ -1,4 +1,4 @@
-sports.dresscool.co
+sport.dresscool.co
 ===========
 Sports Wear
 
